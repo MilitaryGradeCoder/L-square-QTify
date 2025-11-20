@@ -3,6 +3,7 @@ import Navbar from './Navbar/Navbar';
 import Hero from './Hero/Hero';
 import TopAlbumsSection from './TopAlbumsSection/Section';
 import NewAlbumsSection from './NewAlbumsSection/NewAlbumsSection';
+import SongsSection from './SongsSection/SongsSection';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
     <TopAlbumsSection />
     <NewAlbumsSection />
     </section>
+    <SongsSection />
     {/* <Routes>
       
     </Routes> */}

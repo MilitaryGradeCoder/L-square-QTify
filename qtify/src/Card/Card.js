@@ -1,17 +1,12 @@
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CardActionArea from '@mui/material/CardActionArea';
-import CardActions from '@mui/material/CardActions';
 import Chip from '@mui/material/Chip';
 import styles from './Card.module.css';
-import { flex, justifyContent } from '@mui/system';
 
 
-export default function AlbumCard({image, title, Follows}) {
-    console.log(image)
-    console.log(title)
-    console.log(Follows)
+export default function AlbumCard({image, title, Follows, Likes}) {
+    
   return (<>
     <Card sx={{ maxWidth: 159, height: 205 }}>
       <CardActionArea>
@@ -28,7 +23,7 @@ export default function AlbumCard({image, title, Follows}) {
                fontSize: "10px",
                 fontWeight: 400,
                  color: "#FFFFFF"
-                 }} label= {`${Follows} Follows`}/>
+                 }} label= {Likes ? `${Likes} Likes`: `${Follows} Follows`}/>
         </div>
       </CardActionArea>
       </Card>

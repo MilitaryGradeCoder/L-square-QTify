@@ -9,7 +9,7 @@ import { ReactComponent as SwiperPrev } from "../assests/SwiperPrev.svg"
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-export default function Carousel({Albums}) {
+export default function Carousel({data, fromSongsSection = false}) {
   const swiperPrevSVG = useRef(null);
   const swiperNextSVG = useRef(null);
   const [swiper, setSwiper] = useState(null);
@@ -55,9 +55,10 @@ export default function Carousel({Albums}) {
             },
           }}
     >
-        {Albums.map((album)=>{
-                        return <SwiperSlide key={album.id}>
-                            <AlbumCard image = {album.image} title = {album.title} Follows = {album.follows}/>
+        {data.map((eachObj)=>{
+                        return <SwiperSlide key={eachObj.id}>
+                            {fromSongsSection ? <AlbumCard image = {eachObj.image} title = {eachObj.title} Likes = {eachObj.likes}/> 
+                            : <AlbumCard image = {eachObj.image} title = {eachObj.title} Follows = {eachObj.follows}/>}
                             </SwiperSlide>
                     })}
     </Swiper>

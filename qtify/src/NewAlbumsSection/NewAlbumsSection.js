@@ -12,7 +12,7 @@ export default function NewAlbumsSection (){
     const performAPIcall = async()=>{
         try{
         let response = await axios.get('https://qtify-backend.labs.crio.do/albums/new');
-        console.log(response.data);
+        
         setNewAlbums(response.data);
         }catch(err){
         console.log(err.response.data);
@@ -41,6 +41,6 @@ export default function NewAlbumsSection (){
                 return <div key={album.id}><AlbumCard image = {album.image} title = {album.title} Follows = {album.follows}/></div>
             })}
         </div>}
-        {!show && <Carousel Albums={newAlbums} />}
+        {!show && <Carousel data={newAlbums} />}
     </section>)
 }
