@@ -1,7 +1,7 @@
 import styles from "./button.module.css"
 
-export default function Button ({Text}) {
+export default function Button ({Text, handleClick}) {
     return (
-        <button className={styles.feedBack}>{Text}</button>
+        <button className={styles.feedBack} onClick={handleClick}>{Text}</button>
     )
 };

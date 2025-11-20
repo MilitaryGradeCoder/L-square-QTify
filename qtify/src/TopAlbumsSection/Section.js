@@ -1,13 +1,13 @@
-import React, { use } from "react";
 import styles from "./Section.module.css";
 import Button from "../Button/Button";
 import {useState, useEffect} from 'react'
 import axios from 'axios';
 import AlbumCard from "../Card/Card";
+import Carousel from "../Carousel/Carousel";
 
-
-export default function Section (){
+export default function TopAlbumsSection (){
     const [topAlbums, setTopAlbums] = useState([]);
+    const [show, setShow] = useState(false);
 
     const performAPIcall = async()=>{
         try{
@@ -19,19 +19,29 @@ export default function Section (){
         }
     }
 
+    const toggleView = ()=>{
+        if(show === false){
+            setShow(true);
+        }else{
+            setShow(false);
+        }
+    }
+
     useEffect((()=>{
         performAPIcall();
     }),[])
 
-    return(<section>
+    return(<section className={styles.topAlbumSection}>
         <div className={styles.titleDiv}>
         <p className={styles.title}>Top Albums</p>
-        <Button Text = "Collapse"/> 
+        {!show && <Button Text = "Show all" handleClick = {toggleView}/> }
+        {show && <Button Text = "Collapse" handleClick = {toggleView}/>}
         </div>
-        <div className={styles.gridDiv}>
+       {show && <div className={styles.gridDiv}>
             {topAlbums.map((album)=>{
                 return <div key={album.id}><AlbumCard image = {album.image} title = {album.title} Follows = {album.follows}/></div>
             })}
-        </div>
+        </div>}
+        {!show && <Carousel Albums={topAlbums} />}
     </section>)
 }
