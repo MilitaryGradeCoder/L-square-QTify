@@ -34,8 +34,7 @@ export default function NewAlbumsSection (){
     return(<section className={styles.newAlbumSection}>
         <div className={styles.titleDiv}>
         <p className={styles.title}>New Albums</p>
-        {!show && <Button Text = "Show all" handleClick = {toggleView}/> }
-        {show && <Button Text = "Collapse" handleClick = {toggleView}/>}
+        {show ? <Button Text = "Collapse" handleClick = {toggleView}/> : <Button Text = "Show all" handleClick = {toggleView}/>}
         </div>
        {show && <div className={styles.gridDiv}>
             {newAlbums.map((album)=>{

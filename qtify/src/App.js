@@ -7,11 +7,12 @@ import NewAlbumsSection from './NewAlbumsSection/NewAlbumsSection';
 function App() {
   return (
     <>
-    {/* <div>Hello</div> */}
     <Navbar />
     <Hero />
+    <section>
     <TopAlbumsSection />
     <NewAlbumsSection />
+    </section>
     {/* <Routes>
       
     </Routes> */}

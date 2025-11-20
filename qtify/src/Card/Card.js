@@ -33,7 +33,8 @@ export default function AlbumCard({image, title, Follows}) {
       </CardActionArea>
       </Card>
         <div className={styles.cardText}>
-          New Bollywood
+          {/* New Bollywood */}
+          {title}
         </div>
       </>
     

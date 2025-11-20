@@ -34,8 +34,7 @@ export default function TopAlbumsSection (){
     return(<section className={styles.topAlbumSection}>
         <div className={styles.titleDiv}>
         <p className={styles.title}>Top Albums</p>
-        {!show && <Button Text = "Show all" handleClick = {toggleView}/> }
-        {show && <Button Text = "Collapse" handleClick = {toggleView}/>}
+        {show ? <Button Text = "Collapse" handleClick = {toggleView}/> : <Button Text = "Show all" handleClick = {toggleView}/>}
         </div>
        {show && <div className={styles.gridDiv}>
             {topAlbums.map((album)=>{
