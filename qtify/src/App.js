@@ -5,6 +5,7 @@ import TopAlbumsSection from './TopAlbumsSection/Section';
 import NewAlbumsSection from './NewAlbumsSection/NewAlbumsSection';
 import SongsSection from './SongsSection/SongsSection';
 import FAQSection from './FAQsection/FAQsection';
+import AudioPlayer from './AudioPlayer/AudioPlayer';
 
 function App() {
   return (
@@ -17,9 +18,7 @@ function App() {
     </section>
     <SongsSection />
     <FAQSection/>
-    {/* <Routes>
-      
-    </Routes> */}
+    <AudioPlayer/>
     </>
   );
 }
