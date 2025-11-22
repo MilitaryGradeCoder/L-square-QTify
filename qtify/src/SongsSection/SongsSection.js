@@ -62,7 +62,7 @@ export default function SongsSection() {
             <Box sx={{ width: '100%', typography: 'body1' }}>
                 <TabContext value={value}>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                        <TabList  onChange={handleChange} aria-label="genre" 
+                        <TabList  onChange={handleChange} aria-label="genre" variant="scrollable" scrollButtons="auto"
                         sx={{
                         '& .MuiTabs-indicator': {
                         backgroundColor: '#34C94B', 
@@ -78,7 +78,8 @@ export default function SongsSection() {
                                 '&.Mui-selected': {
                                 color: 'white',
                                 opacity: 1,
-                                }}}
+                                }
+                            }}
                             />
                            {genreList.map((genre)=>{
                             return <Tab key={genre.key} label={genre.label} value={genre.key} 

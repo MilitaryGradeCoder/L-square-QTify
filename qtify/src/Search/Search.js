@@ -109,6 +109,7 @@ function Search({ searchData, placeholder }) {
         </Listbox>
       ) : null}
     </div>
+    
   );
 }
 

@@ -7,18 +7,26 @@ import styles from "./Navbar.module.css";
 
 function Navbar ({ searchData }) {
 
-  return (
+  return (<>
     <nav className={styles.navbar}>
       <Link to="/">
         <Logo />
       </Link>
-      <Search
+      <div className={styles.isDesktop}>
+      <Search 
         placeholder="Search a song of your choice"
         searchData={searchData = []}
       />
-      
+      </div>
       <Button Text = "Give Feedback"/>
     </nav>
+    <div className={styles.isMobile}>
+     <Search 
+        placeholder="Search a song of your choice"
+        searchData={searchData = []}
+      />
+      </div>
+    </>
   );
 }
 

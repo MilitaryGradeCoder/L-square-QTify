@@ -4,7 +4,8 @@ import {useState, useEffect, useRef} from 'react';
 import styles from './AudioPlayer.module.css';
 import PauseIcon from '@mui/icons-material/Pause';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import poster from '../assests/songPoster.jpg';
+import poster from '../assests/ArijitPoster.jpg';
+import wave from '../assests/wave.jpg';
 
 function AudioPlayer() {
     const [play, setPlay] = useState(false);
@@ -21,16 +22,17 @@ function AudioPlayer() {
             
         }
     }, [play])
-  return (
+  return (<>
     <div className={styles.tobeFixed}>
     <hr style={{boxShadow: '0px -2px 6px 0px #FFFFFF59'}}/>
     <div className={styles.playerDiv}>
       <img className={styles.poster} src={poster} alt='Poster'></img>
       <button onClick={()=>handlePlay(!play)} className={styles.playButton}>{play ? <PauseIcon/> : <PlayArrowIcon/>}</button>
-      <ReactPlayer ref={ele} src='https://open.spotify.com/track/4blqlsA1uf2d2I40E90EUC?si=12a8fa0bcf584643' controls={false} playing={play} loop={true}/>
+       <img className={styles.Waveposter} src={wave} alt='wave'></img>
        </div>
-       
-    </div>
+       </div>
+        <ReactPlayer style={{ visibility: 'hidden' }} ref={ele} src='https://youtu.be/00DvaPstcpo?si=Z37NZ3nEGNqO2uMG' controls={false} playing={play} loop={false} />
+    </>
   );
 }
 

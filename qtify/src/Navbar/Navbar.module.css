@@ -9,3 +9,23 @@
   align-items: center;
   justify-content: space-between;
 }
+.isDesktop{
+display: block;
+}
+.isMobile{
+display: none;
+}
+
+@media (max-width:640px) {
+  .isDesktop{
+display: none;
+}
+.isMobile{
+display: block;
+width: 100%;
+display: flex;
+justify-content: center;
+}
+}
+
+
