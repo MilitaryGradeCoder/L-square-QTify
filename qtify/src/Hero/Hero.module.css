@@ -1,16 +1,21 @@
 .hero {
-  background-color: #121212;
-  /* height: 270px; */
+  background-color: transparent;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   align-items: center;
   text-align: center;
-  gap: 30px;
+  margin: 16px;
 }
 .heroText{
 color: #FFFFFF;
 font-family: Poppins;
 font-weight: 600;
+font-size: 32px;
 font-style: SemiBold;
+}
+
+@media (max-width: 640px) {
+  .hero{
+    flex-wrap: wrap;
+  }
 }

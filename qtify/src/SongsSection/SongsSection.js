@@ -7,6 +7,8 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+import { collapseClasses } from "@mui/material";
+import { borderColor } from "@mui/system";
 
 
 export default function SongsSection() {
@@ -52,7 +54,7 @@ export default function SongsSection() {
         performAPIcallforSongs();
     }), [])
 
-    return (<section className={styles.songsSection}>
+    return (<><hr style={{borderColor: '#34C94B'}}/><section className={styles.songsSection}>
         <div className={styles.titleDiv}>
             <p className={styles.title}>Songs</p>
         </div>
@@ -97,6 +99,7 @@ export default function SongsSection() {
                         '&.MuiTabPanel-root': {
                         paddingLeft: '0px', 
                         paddingRight: '0px',
+                        paddingBottom: '0px'
                         },
                         }}><Carousel data={songs} fromSongsSection={true} 
                     
@@ -115,5 +118,7 @@ export default function SongsSection() {
             </Box>
         </div>
         
-    </section>)
+    </section>
+    <hr style={{borderColor: '#34C94B'}}/>
+    </>)
 }

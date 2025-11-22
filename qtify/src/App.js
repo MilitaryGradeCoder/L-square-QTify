@@ -4,6 +4,7 @@ import Hero from './Hero/Hero';
 import TopAlbumsSection from './TopAlbumsSection/Section';
 import NewAlbumsSection from './NewAlbumsSection/NewAlbumsSection';
 import SongsSection from './SongsSection/SongsSection';
+import FAQSection from './FAQsection/FAQsection';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
     <NewAlbumsSection />
     </section>
     <SongsSection />
+    <FAQSection/>
     {/* <Routes>
       
     </Routes> */}
