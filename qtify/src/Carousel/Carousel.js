@@ -8,6 +8,7 @@ import { ReactComponent as SwiperNext } from "../assests/SwiperNext.svg"
 import { ReactComponent as SwiperPrev } from "../assests/SwiperPrev.svg"
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { Link } from 'react-router-dom';
 
 export default function Carousel({data, fromSongsSection = false}) {
   const swiperPrevSVG = useRef(null);
@@ -57,8 +58,8 @@ export default function Carousel({data, fromSongsSection = false}) {
     >
         {data.map((eachObj)=>{
                         return <SwiperSlide key={eachObj.id}>
-                            {fromSongsSection ? <AlbumCard image = {eachObj.image} title = {eachObj.title} Likes = {eachObj.likes}/> 
-                            : <AlbumCard image = {eachObj.image} title = {eachObj.title} Follows = {eachObj.follows}/>}
+                            {fromSongsSection ? <AlbumCard id = {eachObj.id} image = {eachObj.image} title = {eachObj.title} Likes = {eachObj.likes}/> 
+                            : <Link style={{textDecoration: "none"}} to={`/AlbumDetail/:${eachObj.id}`}><AlbumCard id = {eachObj.id} image = {eachObj.image} title = {eachObj.title} Follows = {eachObj.follows}/></Link>}
                             </SwiperSlide>
                     })}
     </Swiper>

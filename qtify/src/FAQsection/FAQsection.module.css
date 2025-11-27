@@ -7,7 +7,7 @@
     /* max-width: 100%; */
 }
 
-h1{
+.FAQdiv > h1{
 display: inline;
 margin: 16px;
 font-family: Poppins;

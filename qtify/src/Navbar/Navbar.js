@@ -18,7 +18,7 @@ function Navbar ({ searchData }) {
         searchData={searchData = []}
       />
       </div>
-      <Button Text = "Give Feedback"/>
+     <Button Text = "Give Feedback"/>
     </nav>
     <div className={styles.isMobile}>
      <Search 

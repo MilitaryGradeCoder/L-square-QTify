@@ -5,9 +5,10 @@ import Chip from '@mui/material/Chip';
 import styles from './Card.module.css';
 
 
-export default function AlbumCard({image, title, Follows, Likes}) {
+export default function AlbumCard({id, image, title, Follows, Likes}) {
     
   return (<>
+  
     <Card sx={{ maxWidth: 159, height: 205 }}>
       <CardActionArea>
         <CardMedia
@@ -31,6 +32,7 @@ export default function AlbumCard({image, title, Follows, Likes}) {
           {/* New Bollywood */}
           {title}
         </div>
+      
       </>
     
   );
