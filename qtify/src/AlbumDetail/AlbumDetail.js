@@ -11,10 +11,11 @@ import SongsTable from '../SongsTable/SongsTable'
 export default function AlbumDetail(){
     const [data, setData] = useState({})
     const {Album_id} = useParams();
-    console.log(Album_id);
+    // console.log(Album_id);
 
     useEffect(()=>{
         getAlbumData(Album_id);
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     },[])
      
     const getTotalTime = (data)=>{
@@ -65,7 +66,7 @@ export default function AlbumDetail(){
             </div>
             </div> 
         </div>}
-        {/* <SongsTable/> */}
+        <SongsTable songList = {data.songs}/>
         </>
     )
 }

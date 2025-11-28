@@ -4,6 +4,7 @@ import {useState, useEffect} from 'react'
 import axios from 'axios';
 import AlbumCard from "../Card/Card";
 import Carousel from "../Carousel/Carousel";
+import { Link } from "react-router-dom";
 
 export default function TopAlbumsSection (){
     const [topAlbums, setTopAlbums] = useState([]);
@@ -38,7 +39,7 @@ export default function TopAlbumsSection (){
         </div>
        {show && <div className={styles.gridDiv}>
             {topAlbums.map((album)=>{
-                return <div key={album.id}><AlbumCard image = {album.image} title = {album.title} Follows = {album.follows}/></div>
+                return <div key={album.id}><Link style={{textDecoration: "none"}} to={`/AlbumDetail/:${album.id}`}><AlbumCard image = {album.image} title = {album.title} Follows = {album.follows}/></Link></div>
             })}
         </div>}
         {!show && <Carousel data={topAlbums} />}

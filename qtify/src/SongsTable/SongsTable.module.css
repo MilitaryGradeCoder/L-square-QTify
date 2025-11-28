@@ -1,0 +1,12 @@
+.songPoster{
+    height: 64px;
+    width: 59px;
+    border-radius: 4px;
+}
+
+.cellDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
+import TableHead from '@mui/material/TableHead';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TableFooter from '@mui/material/TableFooter';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
@@ -15,6 +15,7 @@ import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
+import styles from './SongsTable.module.css';
 
 function TablePaginationActions(props) {
   const theme = useTheme();
@@ -81,29 +82,19 @@ TablePaginationActions.propTypes = {
   rowsPerPage: PropTypes.number.isRequired,
 };
 
-function createData(name, calories, fat) {
-  return { name, calories, fat };
-}
 
-const rows = [
-  createData('Cupcake', 305, 3.7),
-  createData('Donut', 452, 25.0),
-  createData('Eclair', 262, 16.0),
-  createData('Frozen yoghurt', 159, 6.0),
-  createData('Gingerbread', 356, 16.0),
-  createData('Honeycomb', 408, 3.2),
-  createData('Ice cream sandwich', 237, 9.0),
-  createData('Jelly Bean', 375, 0.0),
-  createData('KitKat', 518, 26.0),
-  createData('Lollipop', 392, 0.2),
-  createData('Marshmallow', 318, 0),
-  createData('Nougat', 360, 19.0),
-  createData('Oreo', 437, 18.0),
-].sort((a, b) => (a.calories < b.calories ? -1 : 1));
+// const rows = [{title : "hello", artist: "rahul", duration: "2345ms"},{title : "hello", artist: "ravi", duration: "777ms"}]
 
-export default function SongsTable() {
+export default function SongsTable({songList = []}) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
+
+  const rows = [...songList];
+  
+// let rows = [{title : "some", artist: "rahul", durationInMs: "2345ms"},{title : "hello", artist: "ravi", durationInMs: "777ms"}]
+
+
+
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
@@ -121,9 +112,9 @@ export default function SongsTable() {
   return (
     <TableContainer component={Paper} sx={{padding: "24px", backgroundColor: "transparent"}}>
       <Table sx={{ minWidth: 500}} aria-label="custom pagination table">
-        <TableBody sx={{color: "white", fontFamily: "Poppins"}}>
-             <TableRow >
-            <TablePagination sx={{color: "white", fontFamily: "Poppins", backgroundColor: "transparent"}}
+         <TableHead>
+             <TableRow>
+           <TablePagination sx={{color: "white", fontFamily: "Poppins", backgroundColor: "transparent"}}
               rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
               colSpan={3}
               count={rows.length}
@@ -141,20 +132,34 @@ export default function SongsTable() {
               onRowsPerPageChange={handleChangeRowsPerPage}
               ActionsComponent={TablePaginationActions}
             />
-          </TableRow>
+            </TableRow>
+          
+        </TableHead>
+        <TableBody style={{color: "white", fontFamily: "Poppins"}}>
+          <TableRow sx={{color: "white", fontFamily: "Poppins"}}>
+                <TableCell sx={{color: "white", fontFamily: "Poppins", textDecorationLine: "underline"}} align="left">
+                  Title
+                </TableCell >
+                <TableCell sx={{color: "white", fontFamily: "Poppins", textDecorationLine: "underline"}} align="left">
+                  Artist
+                </TableCell>
+                <TableCell sx={{color: "white", fontFamily: "Poppins", textDecorationLine: "underline"}} align="right">
+                  Duration
+                </TableCell>
+            
+            </TableRow>  
           {(rowsPerPage > 0
             ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            : rows
-          ).map((row) => (
-            <TableRow key={row.name} >
-              <TableCell component="th" scope="row" style={{color: "white", fontFamily: "Poppins"}} >
-                {row.name}
+            : rows).map((row) => (
+            <TableRow key={row.title} >
+              <TableCell  style={{color: "white", fontFamily: "Poppins"}} align="left" >
+                <div className={styles.cellDiv}><img className={styles.songPoster} src={row.image} alt='songPoster'/>{row.title}</div>
+              </TableCell>
+              <TableCell style={{color: "white", fontFamily: "Poppins"}} align="left">
+                {row.artists[0]}
               </TableCell>
               <TableCell style={{color: "white", fontFamily: "Poppins"}} align="right">
-                {row.calories}
-              </TableCell>
-              <TableCell style={{color: "white", fontFamily: "Poppins"}} align="right">
-                {row.fat}
+                {row.durationInMs}
               </TableCell>
             </TableRow>
           ))}
@@ -164,9 +169,7 @@ export default function SongsTable() {
             </TableRow>
           )}
         </TableBody>
-        <TableFooter >
-         
-        </TableFooter>
+       
       </Table>
     </TableContainer>
   );
