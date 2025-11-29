@@ -16,6 +16,101 @@ display: block;
 display: none;
 }
 
+
+
+.inputArea{
+  width: 100%;
+  border: 1px solid #34C94B;
+  border-radius: 5px;
+  font-family: Poppins;
+  padding: 0px 10px;
+  height: 38px;
+}
+
+.discriptionArea{
+  width: 100%;
+  border: 1px solid #34C94B;
+  border-radius: 5px;
+  font-family: Poppins;
+  padding: 0px 10px;
+}
+ 
+.submitButton{
+  background-color: #34C94B;
+  color: #ffffff;
+  font-family: Poppins;
+  border: none;
+  font-weight: 600;
+  border-radius: 12px;
+  height: 53px;
+  width: 192px;
+}
+
+.modalOverlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+}
+
+.modalContent{
+position: absolute;
+width: 40%;
+height: 80%;
+top: 10%;
+left: 30%;
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+padding: 16px 24px;
+background-color: #ffffff;
+opacity: 1 !important;
+z-index: 1001;
+
+}
+
+.feedBackHeader{
+  height: 15%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-family: Poppins;
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 16px;
+}
+
+.inputDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 70%;
+  margin: 16px 0px;
+}
+.feedbackText{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.closeButton{
+  height: 16px;
+  width: 16px;
+  background-color: transparent;
+  color: #121212;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
 @media (max-width:640px) {
   .isDesktop{
 display: none;

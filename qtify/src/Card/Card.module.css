@@ -12,3 +12,8 @@ line-height: 100%;
 letter-spacing: 0px;
 margin: 8px 0px;
 }
+
+.cardButton{
+    text-decoration: none;
+    background-color: transparent;
+}

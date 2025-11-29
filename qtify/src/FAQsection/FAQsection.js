@@ -7,7 +7,6 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './FAQsection.module.css';
 import { v4 as uuidv4 } from 'uuid';
-import { fontFamily, fontSize, height } from '@mui/system';
 
 
 

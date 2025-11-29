@@ -16,6 +16,7 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
 import styles from './SongsTable.module.css';
+import { useSnackbar } from 'notistack';
 
 function TablePaginationActions(props) {
   const theme = useTheme();
@@ -90,6 +91,7 @@ export default function SongsTable({songList = []}) {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const rows = [...songList];
+  const {enqueueSnackbar} = useSnackbar();
   
 // let rows = [{title : "some", artist: "rahul", durationInMs: "2345ms"},{title : "hello", artist: "ravi", durationInMs: "777ms"}]
 
@@ -109,6 +111,9 @@ export default function SongsTable({songList = []}) {
     setPage(0);
   };
 
+  const handleSongClick = ()=>{
+     enqueueSnackbar('We do not have songs copyright. This is a dummy webpage.', {variant: 'info', anchorOrigin: {vertical: 'bottom', horizontal: 'center'}});
+  }
   return (
     <TableContainer component={Paper} sx={{padding: "24px", backgroundColor: "transparent"}}>
       <Table sx={{ minWidth: 500}} aria-label="custom pagination table">
@@ -151,7 +156,7 @@ export default function SongsTable({songList = []}) {
           {(rowsPerPage > 0
             ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : rows).map((row) => (
-            <TableRow key={row.title} >
+            <TableRow key={row.id} onClick={handleSongClick}>
               <TableCell  style={{color: "white", fontFamily: "Poppins"}} align="left" >
                 <div className={styles.cellDiv}><img className={styles.songPoster} src={row.image} alt='songPoster'/>{row.title}</div>
               </TableCell>

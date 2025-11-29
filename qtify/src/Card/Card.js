@@ -3,13 +3,20 @@ import CardMedia from '@mui/material/CardMedia';
 import CardActionArea from '@mui/material/CardActionArea';
 import Chip from '@mui/material/Chip';
 import styles from './Card.module.css';
+import { useSnackbar } from 'notistack';
+import { typographyVariant } from '@mui/system';
 
 
 export default function AlbumCard({id, image, title, Follows, Likes}) {
-    
+  const {enqueueSnackbar} = useSnackbar();
+    const handleClick = ()=>{
+      if (Likes){
+        enqueueSnackbar('We do not have songs copyright. This is a dummy webpage.', {variant: 'info', anchorOrigin: {vertical: 'bottom', horizontal: 'center'}});
+      }
+    }
   return (<>
-  
-    <Card sx={{ maxWidth: 159, height: 205 }}>
+    
+    <Card onClick={handleClick} sx={{ maxWidth: 159, height: 205 }}>
       <CardActionArea>
         <CardMedia
         component="img"
