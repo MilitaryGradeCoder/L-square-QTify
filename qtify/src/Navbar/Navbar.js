@@ -9,7 +9,11 @@ import { useState } from "react";
 import { useSnackbar } from "notistack";
 
 
+
+
+
 Modal.setAppElement('#root');
+
 
 
 function Navbar ({ searchData }) {
@@ -20,8 +24,10 @@ const [subject, setSubject] = useState("");
 const [disc, setDisc] = useState("");
 const {enqueueSnackbar} = useSnackbar();
 
+
+
+
 const openModal = ()=>{
-// console.log("Hello")
 setIsOpen(true);
 }
 const closeModal = ()=>{
@@ -65,7 +71,7 @@ const handleSubmit = () =>{
       <div className={styles.isDesktop}>
       <Search 
         placeholder="Search a song of your choice"
-        searchData={searchData = []}
+        searchData={searchData=[]}
       />
       </div>
       <div>

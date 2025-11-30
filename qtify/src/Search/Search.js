@@ -7,6 +7,7 @@ import { styled } from "@mui/system";
 import { useNavigate } from "react-router-dom";
 
 
+
 const Listbox = styled("ul")(({ theme }) => ({
   width: "100%",
   margin: 0,
@@ -60,7 +61,7 @@ function Search({ searchData, placeholder }) {
   };
 
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative" }} >
       <form
         className={styles.wrapper}
         onSubmit={(e) => {

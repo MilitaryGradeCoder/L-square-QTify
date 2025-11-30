@@ -4,7 +4,6 @@ import CardActionArea from '@mui/material/CardActionArea';
 import Chip from '@mui/material/Chip';
 import styles from './Card.module.css';
 import { useSnackbar } from 'notistack';
-import { typographyVariant } from '@mui/system';
 
 
 export default function AlbumCard({id, image, title, Follows, Likes}) {

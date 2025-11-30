@@ -8,16 +8,19 @@
   /* width: 502px; */
 }
 
+
 .wrapper {
   display: flex;
   align-items: stretch;
   height: 48px;
+  width: 100%;
 }
 
 .searchButton {
   border-radius: 0px 8px 8px 0px;
   padding: 14px 20px;
   height: 100%;
+  width: 100%;
   border: 1px solid black;
   border-left: none;
   cursor: pointer;

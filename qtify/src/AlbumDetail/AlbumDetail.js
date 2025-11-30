@@ -29,6 +29,7 @@ export default function AlbumDetail(){
     }
 
     const getAlbumData = async (Album_id)=>{
+        try{
         let response = await axios.get('https://qtify-backend.labs.crio.do/albums/top');
         
         let requiredDataTop = (response.data).filter((eachAlbum)=>{
@@ -50,6 +51,9 @@ export default function AlbumDetail(){
         
         setData(requiredData[0]);
         }
+    }catch(err){
+        console.log(err);
+    }
     }
     return(<>
         <Link to="/"><button className={styles.backButton}><ArrowBackIcon/></button></Link>

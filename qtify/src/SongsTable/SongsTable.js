@@ -164,7 +164,7 @@ export default function SongsTable({songList = []}) {
                 {row.artists[0]}
               </TableCell>
               <TableCell style={{color: "white", fontFamily: "Poppins"}} align="right">
-                {row.durationInMs}
+                {Math.floor((row.durationInMs/1000)/60)}:{Math.floor((row.durationInMs/1000)%60)}
               </TableCell>
             </TableRow>
           ))}
