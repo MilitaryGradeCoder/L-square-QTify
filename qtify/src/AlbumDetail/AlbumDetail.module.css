@@ -77,15 +77,22 @@
 }
 
 @media (max-width: 450px) {
-    .albumInfo{
-        display: flex;
-        flex-direction: column;
-    }
+
 }
 
 @media (max-width: 640px) {
-    .albumSpecs, .shuffleDiv{
+    .albumSpecs{
         display: flex;
         flex-direction: column;
+    }
+    .albumInfo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+     .backButton{
+        margin-left: 20px;
     }
 }

@@ -121,6 +121,12 @@ width: 100%;
 display: flex;
 justify-content: center;
 }
+.modalContent{
+  top: 5%;
+  left: 5%;
+  height: 90%;
+  width: 90%;
+}
 }
 
 

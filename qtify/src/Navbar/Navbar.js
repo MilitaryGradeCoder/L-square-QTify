@@ -39,20 +39,17 @@ const handleSubmit = () =>{
   if(!name){
     document.getElementById("name").style.backgroundColor = "red";
     valid = false;
-    }
-  if(!mail){
+    }else if(!mail){
     document.getElementById("mail").style.backgroundColor = "red";
     valid = false;
-    }
-  if(!subject){
+    }else if(!subject){
     document.getElementById("sub").style.backgroundColor = "red";
     valid = false;
-    }
-  if(!disc){
+    }else if(!disc){
     document.getElementById("disc").style.backgroundColor = "red";
     valid = false;
     }
-  
+    
     if (valid){
       setName("");
       setMail("");
@@ -89,9 +86,12 @@ const handleSubmit = () =>{
             <button className={styles.closeButton} onClick={closeModal}>X</button>
             </div>
             <div className={styles.inputDiv}>
-              <input id="name" className={styles.inputArea} type="text" placeholder="Full name" value={name} onChange = {(e)=>{setName(e.target.value); e.target.style.backgroundColor = "white"}}/>
-               <input id="mail" className={styles.inputArea} type="email" placeholder="Email id" value={mail} onChange = {(e)=>{setMail(e.target.value); e.target.style.backgroundColor = "white"}}/>
-                <input id="sub" className={styles.inputArea} type="text" placeholder="Subject" value={subject} onChange = {(e)=>{setSubject(e.target.value); e.target.style.backgroundColor = "white"}}/>
+              <input id="name" className={styles.inputArea} type="text" placeholder="Full name" value={name} 
+              onChange = {(e)=>{setName(e.target.value); e.target.style.backgroundColor = "white"}}/>
+               <input id="mail" className={styles.inputArea} type="email" placeholder="Email id" value={mail} 
+               onChange = {(e)=>{setMail(e.target.value); e.target.style.backgroundColor = "white"}}/>
+                <input id="sub" className={styles.inputArea} type="text" placeholder="Subject" value={subject} 
+                onChange = {(e)=>{setSubject(e.target.value); e.target.style.backgroundColor = "white"}}/>
                 <textarea id="disc" className={styles.discriptionArea} rows={4} placeholder="Description" value={disc} onChange = {(e)=>{setDisc(e.target.value); e.target.style.backgroundColor = "white"}}/>
             </div>
             <div>
