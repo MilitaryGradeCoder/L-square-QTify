@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import styles from "./Search.module.css";
 import { ReactComponent as SearchIcon } from "../assests/SearchIcon.svg"
 import { useAutocomplete } from "@mui/base/useAutocomplete";
@@ -14,7 +14,7 @@ const Listbox = styled("ul")(({ theme }) => ({
   padding: 0,
   position: "absolute",
   borderRadius: "0px 0px 10px 10px",
-  border: "1px solid var(--color-primary)",
+  border: "1px solid #34C94B",
   top: 60,
   height: "max-content",
   maxHeight: "500px",
@@ -24,8 +24,9 @@ const Listbox = styled("ul")(({ theme }) => ({
   bottom: 0,
   right: 0,
   listStyle: "none",
-  backgroundColor: "var(--color-black)",
+  backgroundColor: "#121212",
   overflow: "auto",
+  color: "white",
   "& li.Mui-focused": {
     backgroundColor: "#4a8df6",
     color: "white",
@@ -38,6 +39,8 @@ const Listbox = styled("ul")(({ theme }) => ({
 }));
 
 function Search({ searchData, placeholder }) {
+
+const [inputValue, setInputValue] = useState("");
   const {
     getRootProps,
     getInputLabelProps,
@@ -49,17 +52,27 @@ function Search({ searchData, placeholder }) {
   } = useAutocomplete({
     id: "use-autocomplete-demo",
     options: searchData || [],
-    getOptionLabel: (option) => option.title,
+    getOptionLabel: (option) => option.title, 
   });
 
   const navigate = useNavigate();
+  
+
   const onSubmit = (e, value) => {
     e.preventDefault();
-    console.log(value);
-    navigate(`/album/${value.slug}`);
+    // console.log(value);
+    setInputValue("");
+    navigate(`/AlbumDetail/:${value.id}`);
+    
     //Process form data, call API, set state etc.
   };
 
+  const handleChange = (e)=>{
+    setInputValue(e.target.value)
+  }
+
+  
+  
   return (
     <div style={{ position: "relative" }} >
       <form
@@ -74,6 +87,8 @@ function Search({ searchData, placeholder }) {
             className={styles.search}
             placeholder={placeholder}
             required
+            value={inputValue}
+            onChange={(e)=>handleChange(e)}
             {...getInputProps()}
           />
         </div>
@@ -86,7 +101,7 @@ function Search({ searchData, placeholder }) {
       {groupedOptions.length > 0 ? (
         <Listbox {...getListboxProps()}>
           {groupedOptions.map((option, index) => {
-            // console.log(option);
+            console.log(option);
             const artists = option.songs.reduce((accumulator, currentValue) => {
               accumulator.push(...currentValue.artists);
               return accumulator;
@@ -97,13 +112,17 @@ function Search({ searchData, placeholder }) {
                 className={styles.listElement}
                 {...getOptionProps({ option, index })}
               >
-                <div>
+                <img src={option.image} className={styles.optionImage}></img>
+                <div style={{alignContent: "center"}}>
                   <p className={styles.albumTitle}>{option.title}</p>
 
                   <p className={styles.albumArtists}>
                     {/* {truncate(artists.join(", "), 40)} */}
+                    {artists[0]}
                   </p>
                 </div>
+                <div style={{display: "flex", flexWrap: "wrap"}}>{option.follows} Follows</div>
+              
               </li>
             );
           })}

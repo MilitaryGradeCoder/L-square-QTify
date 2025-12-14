@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./AlbumDetail.module.css"
 import { useParams, Link} from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -11,12 +10,13 @@ import SongsTable from '../SongsTable/SongsTable'
 export default function AlbumDetail(){
     const [data, setData] = useState({})
     const {Album_id} = useParams();
+    
     // console.log(Album_id);
 
     useEffect(()=>{
         getAlbumData(Album_id);
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-    },[])
+    },[Album_id])
      
     const getTotalTime = (data)=>{
         let totalMS = data.songs.reduce((MS, eachSong)=>{
@@ -56,7 +56,7 @@ export default function AlbumDetail(){
     }
     }
     return(<>
-        <Link to="/"><button className={styles.backButton}><ArrowBackIcon/></button></Link>
+        <Link to="/" style={{ display: 'inline-block' }} ><button className={styles.backButton}><ArrowBackIcon/></button></Link>
        {data && <div className={styles.albumInfo}>
           <img src={data.image} alt="albumPoster"/>  
            <div className={styles.albumData}>

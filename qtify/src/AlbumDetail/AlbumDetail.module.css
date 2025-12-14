@@ -1,4 +1,6 @@
 .backButton{
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
     background-color: transparent;
     border: 1px solid #ffffff;
@@ -9,8 +11,7 @@
     margin-top: 24px;
     margin-bottom: 24px;
     margin-left: 78px;
-    height: 40px;
-    width: 40px;
+    
 }
 
 .albumInfo{

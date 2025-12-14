@@ -30,6 +30,7 @@
   padding: 15px;
   display: flex;
   justify-content: space-between;
+  
 }
 
 .albumTitle {
@@ -39,3 +40,17 @@
 .albumArtists {
   font-size: 12px;
 }
+
+.optionImage{
+  border-radius: 10px;
+  height: 71px;
+  width: 66px;
+  border: 5px solid #1D1D1D;
+  margin: 5px;
+}
+
+/* @media (min-width: 640px){
+  ul{
+    width: 150%;
+  }
+} */

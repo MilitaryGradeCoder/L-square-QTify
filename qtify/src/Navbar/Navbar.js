@@ -5,8 +5,9 @@ import Logo from "../Logo";
 import Search from "../Search/Search";
 import styles from "./Navbar.module.css";
 import Modal from 'react-modal';
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useSnackbar } from "notistack";
+import {allAlbums} from "../Context";
 
 
 
@@ -24,6 +25,8 @@ const [subject, setSubject] = useState("");
 const [disc, setDisc] = useState("");
 const {enqueueSnackbar} = useSnackbar();
 
+
+let completeData = useContext(allAlbums)
 
 
 
@@ -68,7 +71,7 @@ const handleSubmit = () =>{
       <div className={styles.isDesktop}>
       <Search 
         placeholder="Search a song of your choice"
-        searchData={searchData=[]}
+        searchData={completeData}
       />
       </div>
       <div>
@@ -104,7 +107,7 @@ const handleSubmit = () =>{
     <div className={styles.isMobile}>
      <Search 
         placeholder="Search a song of your choice"
-        searchData={searchData = []}
+        searchData={completeData}
       />
       </div>
     </>
