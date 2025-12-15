@@ -5,6 +5,7 @@ import { useAutocomplete } from "@mui/base/useAutocomplete";
 import { styled } from "@mui/system";
 // import { truncate } from "../../helpers/helpers";
 import { useNavigate } from "react-router-dom";
+import Autocomplete from "@mui/material/Autocomplete";
 
 
 
@@ -60,10 +61,9 @@ const [inputValue, setInputValue] = useState("");
 
   const onSubmit = (e, value) => {
     e.preventDefault();
-    // console.log(value);
     setInputValue("");
     navigate(`/AlbumDetail/:${value.id}`);
-    
+    Autocomplete.value = "";
     //Process form data, call API, set state etc.
   };
 
@@ -71,8 +71,9 @@ const [inputValue, setInputValue] = useState("");
     setInputValue(e.target.value)
   }
 
+ 
   
-  
+  // console.log("Search component rendered")
   return (
     <div style={{ position: "relative" }} >
       <form
@@ -81,7 +82,7 @@ const [inputValue, setInputValue] = useState("");
           onSubmit(e, value);
         }}
       >
-        <div {...getRootProps()}>
+        <div {...getRootProps()}  >
           <input
             name="album"
             className={styles.search}
@@ -92,7 +93,7 @@ const [inputValue, setInputValue] = useState("");
             {...getInputProps()}
           />
         </div>
-        <div>
+        <div >
           <button className={styles.searchButton} type="submit">
             <SearchIcon />
           </button>
@@ -101,7 +102,7 @@ const [inputValue, setInputValue] = useState("");
       {groupedOptions.length > 0 ? (
         <Listbox {...getListboxProps()}>
           {groupedOptions.map((option, index) => {
-            console.log(option);
+            // console.log(option);
             const artists = option.songs.reduce((accumulator, currentValue) => {
               accumulator.push(...currentValue.artists);
               return accumulator;
@@ -121,7 +122,7 @@ const [inputValue, setInputValue] = useState("");
                     {artists[0]}
                   </p>
                 </div>
-                <div style={{display: "flex", flexWrap: "wrap"}}>{option.follows} Follows</div>
+                <div style={{display: "flex", flexWrap: "wrap", alignContent: "center"}}>{option.follows} Follows</div>
               
               </li>
             );

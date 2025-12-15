@@ -4,7 +4,6 @@ import AlbumDetail from './AlbumDetail/AlbumDetail';
 import Navbar from './Navbar/Navbar';
 import AudioPlayer from './AudioPlayer/AudioPlayer';
 import {SnackbarProvider} from 'notistack';
-import Data from './ApiCalling';
 import {AllAlbumsContext} from "./Context";
 
 function App() {
@@ -14,7 +13,7 @@ function App() {
   
   <SnackbarProvider>
     <AllAlbumsContext>
-    <Navbar searchData = {Data}/>
+    <Navbar />
     </AllAlbumsContext>
   <Routes>
     <Route path='/' Component={Landing}></Route>

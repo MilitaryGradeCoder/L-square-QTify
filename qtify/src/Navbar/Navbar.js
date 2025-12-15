@@ -17,7 +17,7 @@ Modal.setAppElement('#root');
 
 
 
-function Navbar ({ searchData }) {
+function Navbar () {
 const [isOpen, setIsOpen] = useState(false);
 const [name, setName] = useState("");
 const [mail, setMail] = useState("");
@@ -62,7 +62,7 @@ const handleSubmit = () =>{
       enqueueSnackbar('Thank You! Your feedback submitted successfully.', {variant: 'success', anchorOrigin:{vertical: 'bottom', horizontal: 'center'}})
     }
 }
-
+// console.log("Navbar component rendered")
   return (<>
     <nav className={styles.navbar}>
       <Link to="/">
